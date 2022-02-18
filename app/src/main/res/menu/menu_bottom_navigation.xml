@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_moves"
+        android:icon="@drawable/ic_baseline_list_24"
+        android:title="@string/moves_title" />
+
+    <item
+        android:id="@+id/nav_cart"
+        android:icon="@drawable/ic_baseline_add_24"
+        android:title="@string/add_move_title" />
+    <item
+        android:id="@+id/nav_routine"
+        android:icon="@drawable/ic_baseline_list_24"
+        android:title="@string/routines_title" />
+
+</menu>
