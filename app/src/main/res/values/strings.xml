@@ -16,4 +16,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="quick_title">شروع سریع</string>
     <string name="sets_title">تعداد ست ها</string>
+    <string name="setsText">تعداد ست ها</string>
+    <string name="setsAddBottomDescription">اضافه کردن به ست ها</string>
+    <string name="setsMinusBottomDescription">کم کردن ست ها</string>
+    <string name="workText">زمان تمرین</string>
+    <string name="restText">زمان استراحت</string>
 </resources>

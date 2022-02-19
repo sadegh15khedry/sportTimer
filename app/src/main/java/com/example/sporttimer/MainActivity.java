@@ -35,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnItemSelectedListener(bottomNavigationItemSelectedListener);
 
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                new QuickFragment()).commit();
+        bottomNavigationView.setSelectedItemId(R.id.nav_quick);
     }
 
 
@@ -54,9 +57,9 @@ public class MainActivity extends AppCompatActivity {
                 selectedFragment = new RoutinesFragment();
 
             }
-            else if (item.getItemId() == R.id.nav_add) {
-                selectedFragment = new AddFragment();
-            }
+//            else if (item.getItemId() == R.id.nav_add) {
+//                selectedFragment = new AddFragment();
+//            }
             else if (item.getItemId() == R.id.nav_quick) {
                 selectedFragment = new QuickFragment();
             }

@@ -1,39 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingHorizontal="@dimen/horizontal_padding"
     tools:context=".QuickFragment">
 
 
-        <!--title-->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:textAlignment="center"
-            android:paddingBottom="30dp"
-            android:textSize="25sp"
-            android:paddingTop="30dp"
-            android:text="@string/quick_title"
-            android:textStyle="bold"
-            android:id="@+id/quick_title_id"/>
+    <!--title-->
 
-        <!--full name-->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/signup_name"
-            android:layout_width="match_parent"
-            app:layout_constraintTop_toBottomOf="@+id/quick_title_id"
-            android:layout_height="wrap_content"
-            android:hint="@string/sets_title">
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="122dp"
+        android:layout_height="85dp"
+        android:layout_marginBottom="36dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="40dp" />
 
-        </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+        android:id="@+id/quickTitleId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="30dp"
+        android:paddingBottom="30dp"
+        android:text="@string/quick_title"
+        android:textAlignment="center"
+        android:textSize="@dimen/heading_size"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- sets -->
+
+    <TextView
+        android:id="@+id/setsTitleId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:labelFor="@+id/setsInputId"
+        android:text="@string/setsText"
+        android:textSize="20sp"
+        app:flow_verticalAlign="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/setsInputId" />
+
+    <EditText
+        android:id="@+id/setsInputId"
+        android:layout_width="95dp"
+        android:layout_height="48dp"
+        android:autofillHints="number of sets"
+        android:ems="10"
+        android:inputType="number"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/workInputId"
+        app:layout_constraintEnd_toEndOf="@+id/workInputId"
+        app:layout_constraintStart_toStartOf="@+id/workInputId"
+        app:layout_constraintTop_toBottomOf="@+id/quickTitleId" />
+
+    <ImageButton
+        android:id="@+id/setsAddButtonId"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/setsAddBottomDescription"
+        android:src="@drawable/ic_baseline_add_24"
+        app:layout_constraintEnd_toEndOf="@+id/workAddButtonId"
+        app:layout_constraintStart_toStartOf="@+id/workAddButtonId"
+        app:layout_constraintTop_toTopOf="@+id/setsInputId" />
+
+    <ImageButton
+        android:id="@+id/setsMinusButtonId"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/setsMinusBottomDescription"
+        android:src="@drawable/minus"
+        app:layout_constraintEnd_toEndOf="@+id/workMinusButtonId"
+        app:layout_constraintStart_toEndOf="@+id/workInputId"
+        app:layout_constraintTop_toTopOf="@+id/setsInputId" />
+
+
+    <!-- work -->
+    <TextView
+        android:id="@+id/workTitleId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:labelFor="@id/workInputId"
+        android:text="@string/workText"
+        android:textSize="20sp"
+        app:flow_verticalAlign="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/workInputId" />
+
+    <EditText
+        android:id="@+id/workInputId"
+        android:layout_width="95dp"
+        android:layout_height="48dp"
+        android:autofillHints="time of each work"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/restInputId"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/workTitleId"
+        app:layout_constraintTop_toBottomOf="@+id/setsInputId" />
+
+    <ImageButton
+        android:id="@+id/workAddButtonId"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/setsAddBottomDescription"
+        android:src="@drawable/ic_baseline_add_24"
+        app:layout_constraintEnd_toStartOf="@+id/workInputId"
+        app:layout_constraintTop_toTopOf="@+id/workInputId" />
+
+    <ImageButton
+        android:id="@+id/workMinusButtonId"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/setsMinusBottomDescription"
+        android:src="@drawable/minus"
+        app:layout_constraintStart_toEndOf="@+id/workInputId"
+        app:layout_constraintTop_toTopOf="@+id/workInputId" />
+
+
+    <!-- rest -->
+
+    <TextView
+        android:id="@+id/restTitleId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/workInputId"
+        android:text="@string/restText"
+        android:textSize="20sp"
+        app:flow_verticalAlign="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/restInputId" />
+
+    <EditText
+        android:id="@+id/restInputId"
+        android:layout_width="95dp"
+        android:layout_height="48dp"
+        android:autofillHints="time of each work"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintEnd_toEndOf="@+id/workInputId"
+        app:layout_constraintStart_toStartOf="@+id/workInputId"
+        app:layout_constraintTop_toBottomOf="@+id/workInputId" />
+
+    <ImageButton
+        android:id="@+id/restAddButtonId"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/setsAddBottomDescription"
+        android:src="@drawable/ic_baseline_add_24"
+        app:layout_constraintEnd_toStartOf="@+id/workInputId"
+        app:layout_constraintStart_toStartOf="@+id/workAddButtonId"
+        app:layout_constraintTop_toTopOf="@+id/restInputId" />
+
+    <ImageButton
+        android:id="@+id/restMinusButtonId"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@string/setsMinusBottomDescription"
+        android:src="@drawable/minus"
+        app:layout_constraintStart_toEndOf="@+id/restInputId"
+        app:layout_constraintTop_toTopOf="@+id/restInputId" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="122dp"
+        android:layout_height="85dp"
+        android:layout_marginBottom="16dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="206dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
