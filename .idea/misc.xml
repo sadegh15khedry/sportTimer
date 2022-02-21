@@ -5,11 +5,14 @@
       <map>
         <entry key="..\:/Users/sadeg/AndroidStudioProjects/sportTimer/app/src/main/res/drawable/ic_baseline_timer_24.xml" value="0.1" />
         <entry key="..\:/Users/sadeg/AndroidStudioProjects/sportTimer/app/src/main/res/drawable/launcher_icon.xml" value="0.245" />
+        <entry key="..\:/Users/sadeg/AndroidStudioProjects/sportTimer/app/src/main/res/layout-land/fragment_quick.xml" value="0.4" />
         <entry key="..\:/Users/sadeg/AndroidStudioProjects/sportTimer/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/sadeg/AndroidStudioProjects/sportTimer/app/src/main/res/layout/fragment_add.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/sadeg/AndroidStudioProjects/sportTimer/app/src/main/res/layout/fragment_moves.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/sadeg/AndroidStudioProjects/sportTimer/app/src/main/res/layout/fragment_quick.xml" value="0.264" />
+        <entry key="..\:/Users/sadeg/AndroidStudioProjects/sportTimer/app/src/main/res/layout/fragment_quick.xml" value="0.4" />
         <entry key="..\:/Users/sadeg/AndroidStudioProjects/sportTimer/app/src/main/res/layout/fragment_routines.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/sadeg/AndroidStudioProjects/sportTimer/app/src/main/res/layout/row_moves.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/sadeg/AndroidStudioProjects/sportTimer/app/src/main/res/layout/row_routines.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/sadeg/AndroidStudioProjects/sportTimer/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.25416666666666665" />
       </map>
     </option>

@@ -21,4 +21,6 @@
     <string name="setsMinusBottomDescription">کم کردن ست ها</string>
     <string name="workText">زمان تمرین</string>
     <string name="restText">زمان استراحت</string>
+    <string name="saveText">زخیره</string>
+    <string name="quickStartText">شروع</string>
 </resources>
