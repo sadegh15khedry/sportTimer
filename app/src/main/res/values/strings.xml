@@ -25,4 +25,5 @@
     <string name="quickStartText">شروع</string>
     <string name="pause_text">توقف</string>
     <string name="exit_text">خروج</string>
+    <string name="work">تمرین</string>
 </resources>
