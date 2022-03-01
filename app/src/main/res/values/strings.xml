@@ -23,4 +23,6 @@
     <string name="restText">زمان استراحت</string>
     <string name="saveText">زخیره</string>
     <string name="quickStartText">شروع</string>
+    <string name="pause_text">توقف</string>
+    <string name="exit_text">خروج</string>
 </resources>

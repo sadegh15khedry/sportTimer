@@ -59,10 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
             } else if (item.getItemId() == R.id.nav_routine) {
                 selectedFragment = new RoutinesFragment();
-
             }
-//            else if (item.getItemId() == R.id.nav_add) {
-//                selectedFragment = new AddFragment();
 //            }
             else if (item.getItemId() == R.id.nav_quick) {
                 selectedFragment = new QuickFragment();

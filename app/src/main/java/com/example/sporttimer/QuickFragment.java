@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 
@@ -31,9 +32,18 @@ public class QuickFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), TimerActivity.class);
-//                EditText editText = (EditText) findViewById(R.id.editTextTextPersonName);
-//                String message = editText.getText().toString();
-//                intent.putExtra(EXTRA_MESSAGE, message);
+
+                EditText setsEditText = (EditText) getView().findViewById(R.id.setsInputId);
+                EditText workEditText = (EditText) getView().findViewById(R.id.workInputId);
+                EditText restEditText = (EditText) getView().findViewById(R.id.restInputId);
+
+
+                intent.putExtra("sets", setsEditText.getText().toString());
+                intent.putExtra("work", workEditText.getText().toString());
+                intent.putExtra("rest", restEditText.getText().toString());
+
+
+
                 startActivity(intent);
             }
         });
