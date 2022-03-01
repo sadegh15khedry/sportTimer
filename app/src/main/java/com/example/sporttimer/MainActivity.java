@@ -26,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
 
 
+ //                Toast.makeText(getContext(),"working",
+//                Toast.LENGTH_SHORT).show();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
