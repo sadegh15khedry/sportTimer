@@ -12,9 +12,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+
 
 public class QuickFragment extends Fragment {
-
 
 
     @Override
@@ -37,14 +38,15 @@ public class QuickFragment extends Fragment {
                 EditText workEditText = (EditText) getView().findViewById(R.id.workInputId);
                 EditText restEditText = (EditText) getView().findViewById(R.id.restInputId);
 
-
-                intent.putExtra("sets", setsEditText.getText().toString());
-                intent.putExtra("work", workEditText.getText().toString());
-                intent.putExtra("rest", restEditText.getText().toString());
-
-
-
-                startActivity(intent);
+                long index = workEditText.getText().toString().indexOf(':');
+                Toast.makeText(getContext(),String.valueOf(index),
+                Toast.LENGTH_SHORT).show();
+                if (index == -1){
+                    intent.putExtra("sets", setsEditText.getText().toString());
+                    intent.putExtra("work", workEditText.getText().toString());
+                    intent.putExtra("rest", restEditText.getText().toString());
+                    startActivity(intent);
+                }
             }
         });
 

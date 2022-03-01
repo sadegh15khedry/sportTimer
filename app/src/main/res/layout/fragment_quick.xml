@@ -39,10 +39,12 @@
 
     <EditText
         android:id="@+id/setsInputId"
-        android:layout_width="95dp"
-        android:layout_height="48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:autofillHints="number of sets"
         android:ems="10"
+        android:text="@string/sets_default"
+        android:selectAllOnFocus="true"
         android:inputType="numberDecimal"
         android:maxLength="2"
         android:textAlignment="center"
@@ -68,11 +70,14 @@
 
     <EditText
         android:id="@+id/workInputId"
-        android:layout_width="95dp"
-        android:layout_height="48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:autofillHints="time of each work"
         android:ems="10"
         android:inputType="time"
+        android:text="@string/work_default"
+        android:maxLength="5"
+        android:selectAllOnFocus="true"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/restInputId"
         app:layout_constraintEnd_toEndOf="parent"
@@ -96,11 +101,14 @@
 
     <EditText
         android:id="@+id/restInputId"
-        android:layout_width="95dp"
-        android:layout_height="48dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:autofillHints="time of each work"
         android:ems="10"
         android:inputType="time"
+        android:text="@string/rest_default"
+        android:maxLength="5"
+        android:selectAllOnFocus="true"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/saveButtonId"
         app:layout_constraintEnd_toEndOf="@+id/workInputId"

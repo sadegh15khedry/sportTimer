@@ -15,6 +15,7 @@ public class TimerActivity extends AppCompatActivity {
     private CountDownTimer countDownTimer;
     private long timeLeftInMilliSeconds;
     private TextView timerTimeRemainingTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
