@@ -52,10 +52,10 @@
         android:ems="10"
         android:inputType="number"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/workInputId"
-        app:layout_constraintEnd_toEndOf="@+id/workInputId"
+        app:layout_constraintBottom_toTopOf="@+id/workSecondsInputId"
+        app:layout_constraintEnd_toEndOf="@+id/workSecondsInputId"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/workInputId"
+        app:layout_constraintStart_toStartOf="@+id/workSecondsInputId"
         app:layout_constraintTop_toBottomOf="@+id/quickTitleId" />
 
     <ImageButton
@@ -75,7 +75,7 @@
         android:contentDescription="@string/setsMinusBottomDescription"
         android:src="@drawable/minus"
         app:layout_constraintEnd_toEndOf="@+id/workMinusButtonId"
-        app:layout_constraintStart_toEndOf="@+id/workInputId"
+        app:layout_constraintStart_toEndOf="@+id/workSecondsInputId"
         app:layout_constraintTop_toTopOf="@+id/setsInputId" />
 
 
@@ -85,21 +85,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:labelFor="@id/workInputId"
+        android:labelFor="@id/workSecondsInputId"
         android:text="@string/workText"
         android:textSize="20sp"
         app:flow_verticalAlign="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/workInputId" />
+        app:layout_constraintTop_toTopOf="@+id/workSecondsInputId" />
 
     <EditText
-        android:id="@+id/workInputId"
+        android:id="@+id/workSecondsInputId"
         android:layout_width="95dp"
         android:layout_height="48dp"
         android:autofillHints="time of each work"
         android:ems="10"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/restInputId"
+        app:layout_constraintBottom_toTopOf="@+id/restSecondsInputId"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -112,8 +112,8 @@
         android:layout_height="48dp"
         android:contentDescription="@string/setsAddBottomDescription"
         android:src="@drawable/ic_baseline_add_24"
-        app:layout_constraintEnd_toStartOf="@+id/workInputId"
-        app:layout_constraintTop_toTopOf="@+id/workInputId" />
+        app:layout_constraintEnd_toStartOf="@+id/workSecondsInputId"
+        app:layout_constraintTop_toTopOf="@+id/workSecondsInputId" />
 
     <ImageButton
         android:id="@+id/workMinusButtonId"
@@ -121,8 +121,8 @@
         android:layout_height="48dp"
         android:contentDescription="@string/setsMinusBottomDescription"
         android:src="@drawable/minus"
-        app:layout_constraintStart_toEndOf="@+id/workInputId"
-        app:layout_constraintTop_toTopOf="@+id/workInputId" />
+        app:layout_constraintStart_toEndOf="@+id/workSecondsInputId"
+        app:layout_constraintTop_toTopOf="@+id/workSecondsInputId" />
 
 
     <!-- rest -->
@@ -130,15 +130,15 @@
         android:id="@+id/restTitleId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:labelFor="@id/workInputId"
+        android:labelFor="@id/workSecondsInputId"
         android:text="@string/restText"
         android:textSize="20sp"
         app:flow_verticalAlign="center"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/restInputId" />
+        app:layout_constraintTop_toTopOf="@+id/restSecondsInputId" />
 
     <EditText
-        android:id="@+id/restInputId"
+        android:id="@+id/restSecondsInputId"
         android:layout_width="95dp"
         android:layout_height="48dp"
         android:autofillHints="time of each work"
@@ -146,10 +146,10 @@
         android:inputType="number"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/saveButtonId"
-        app:layout_constraintEnd_toEndOf="@+id/workInputId"
+        app:layout_constraintEnd_toEndOf="@+id/workSecondsInputId"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/workInputId"
-        app:layout_constraintTop_toBottomOf="@+id/workInputId" />
+        app:layout_constraintStart_toStartOf="@+id/workSecondsInputId"
+        app:layout_constraintTop_toBottomOf="@+id/workSecondsInputId" />
 
     <ImageButton
         android:id="@+id/restAddButtonId"
@@ -157,9 +157,9 @@
         android:layout_height="48dp"
         android:contentDescription="@string/setsAddBottomDescription"
         android:src="@drawable/ic_baseline_add_24"
-        app:layout_constraintEnd_toStartOf="@+id/workInputId"
+        app:layout_constraintEnd_toStartOf="@+id/workSecondsInputId"
         app:layout_constraintStart_toStartOf="@+id/workAddButtonId"
-        app:layout_constraintTop_toTopOf="@+id/restInputId" />
+        app:layout_constraintTop_toTopOf="@+id/restSecondsInputId" />
 
     <ImageButton
         android:id="@+id/restMinusButtonId"
@@ -167,8 +167,8 @@
         android:layout_height="48dp"
         android:contentDescription="@string/setsMinusBottomDescription"
         android:src="@drawable/minus"
-        app:layout_constraintStart_toEndOf="@+id/restInputId"
-        app:layout_constraintTop_toTopOf="@+id/restInputId" />
+        app:layout_constraintStart_toEndOf="@+id/restSecondsInputId"
+        app:layout_constraintTop_toTopOf="@+id/restSecondsInputId" />
 
 
     <Button
@@ -188,7 +188,7 @@
         android:text="@string/saveText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/restInputId" />
+        app:layout_constraintTop_toBottomOf="@+id/restSecondsInputId" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

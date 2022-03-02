@@ -12,8 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.text.SimpleDateFormat;
-
 
 public class QuickFragment extends Fragment {
 
@@ -35,8 +33,8 @@ public class QuickFragment extends Fragment {
                 Intent intent = new Intent(getContext(), TimerActivity.class);
 
                 EditText setsEditText = (EditText) getView().findViewById(R.id.setsInputId);
-                EditText workEditText = (EditText) getView().findViewById(R.id.workInputId);
-                EditText restEditText = (EditText) getView().findViewById(R.id.restInputId);
+                EditText workEditText = (EditText) getView().findViewById(R.id.workSecondsInputId);
+                EditText restEditText = (EditText) getView().findViewById(R.id.restSecondsInputId);
 
                 long index = workEditText.getText().toString().indexOf(':');
                 Toast.makeText(getContext(),String.valueOf(index),
