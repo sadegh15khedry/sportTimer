@@ -8,6 +8,8 @@ import android.os.CountDownTimer;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -59,9 +61,7 @@ public class TimerActivity extends AppCompatActivity {
             @Override
             public void onTick(long newtTimeLeftInMilliSeconds) {
                 timeLeftInMilliSeconds = timeLeftInMilliSeconds - 1000;
-
-                timerTimeRemainingTextView.setText(String.valueOf(timeLeftInMilliSeconds/1000));
-
+                updateDisplayedTime();
             }
 
             @Override
@@ -72,6 +72,16 @@ public class TimerActivity extends AppCompatActivity {
 
         }.start();
     }
+
+    private void updateDisplayedTime() {
+        int seconds = (int) ((timeLeftInMilliSeconds/1000) % 60);
+        int minutes = (int) (((timeLeftInMilliSeconds/1000)-seconds)/60);
+        if (minutes < 0)
+            minutes = 0;
+        NumberFormat formatter = new DecimalFormat("00");
+        timerTimeRemainingTextView.setText(String.valueOf(formatter.format(minutes)+" : "+formatter.format(seconds)));
+    }
+
 
     private  void TimerStateUpdate(){
         //starting of work
