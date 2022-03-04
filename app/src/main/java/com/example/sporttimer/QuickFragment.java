@@ -33,18 +33,19 @@ public class QuickFragment extends Fragment {
                 Intent intent = new Intent(getContext(), TimerActivity.class);
 
                 EditText setsEditText = (EditText) getView().findViewById(R.id.setsInputId);
-                EditText workEditText = (EditText) getView().findViewById(R.id.workSecondsInputId);
-                EditText restEditText = (EditText) getView().findViewById(R.id.restSecondsInputId);
+                EditText workSecondsEditText = (EditText) getView().findViewById(R.id.workSecondsInputId);
+                EditText workMinutesEditText = (EditText) getView().findViewById(R.id.workMinutesInputId);
+                EditText restSecondsEditText = (EditText) getView().findViewById(R.id.restSecondsInputId);
+                EditText restMinutesEditText = (EditText) getView().findViewById(R.id.restMinutesInputId);
 
-                long index = workEditText.getText().toString().indexOf(':');
-                Toast.makeText(getContext(),String.valueOf(index),
-                Toast.LENGTH_SHORT).show();
-                if (index == -1){
-                    intent.putExtra("sets", setsEditText.getText().toString());
-                    intent.putExtra("work", workEditText.getText().toString());
-                    intent.putExtra("rest", restEditText.getText().toString());
-                    startActivity(intent);
-                }
+
+                intent.putExtra("sets", setsEditText.getText().toString());
+                intent.putExtra("workSeconds", workSecondsEditText.getText().toString());
+                intent.putExtra("workMinutes", workMinutesEditText.getText().toString());
+                intent.putExtra("restSeconds", restSecondsEditText.getText().toString());
+                intent.putExtra("restMinutes", restMinutesEditText.getText().toString());
+                startActivity(intent);
+
             }
         });
 
@@ -52,7 +53,7 @@ public class QuickFragment extends Fragment {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(),"working",
+                Toast.makeText(getContext(), "working",
                         Toast.LENGTH_SHORT).show();
             }
         });

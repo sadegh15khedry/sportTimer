@@ -27,7 +27,9 @@
     <string name="exit_text">خروج</string>
     <string name="work">تمرین</string>
     <string name="sets_default">3</string>
-    <string name="work_default">01:00</string>
-    <string name="rest_default">00:30</string>
+    <string name="work_minutes_default">01</string>
+    <string name="rest_minutes_default">00</string>
+    <string name="rest_seconds_default">30</string>
     <string name="colon">:</string>
+    <string name="work_seconds_default">30</string>
 </resources>
