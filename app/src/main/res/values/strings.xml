@@ -32,4 +32,8 @@
     <string name="rest_seconds_default">30</string>
     <string name="colon">:</string>
     <string name="work_seconds_default">30</string>
+    <string name="notification_state_default">وضعیت</string>
+    <string name="notification_sets_default">10</string>
+    <string name="notification_time_default">01:00</string>
+    <string name="notification_button_default">pause and resume button inside notification</string>
 </resources>
