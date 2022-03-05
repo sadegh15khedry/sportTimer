@@ -47,6 +47,7 @@ public class QuickFragment extends Fragment {
                 startActivity(intent);
 
             }
+
         });
 
         Button saveButton = (Button) getView().findViewById(R.id.saveButtonId);
@@ -60,4 +61,5 @@ public class QuickFragment extends Fragment {
 
         super.onResume();
     }
+
 }

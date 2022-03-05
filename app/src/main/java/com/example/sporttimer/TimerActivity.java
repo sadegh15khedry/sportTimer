@@ -37,7 +37,7 @@ public class TimerActivity extends AppCompatActivity {
     private Button pauseResumeButton;
     private static final String CHANNEL_ID = "timer activity";
 
-    //private RemoteViews remoteViews;
+    private RemoteViews remoteViews;
     //private NotificationManagerCompat notificationManagerCompat;
     //private NotificationCompat.Builder builder;
 
@@ -82,14 +82,6 @@ public class TimerActivity extends AppCompatActivity {
         }
 
 
-
-
-
-
-
-
-
-
         pauseResumeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -105,6 +97,8 @@ public class TimerActivity extends AppCompatActivity {
 
             }
         });
+
+
 
 
         exitButton.setOnClickListener(new View.OnClickListener() {
@@ -126,17 +120,24 @@ public class TimerActivity extends AppCompatActivity {
         super.onResume();
     }
 
-
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "برای خروج دکمه را نگه دارید",
+                Toast.LENGTH_SHORT).show();
+    }
 
     @Override
     protected void onStop() {
 
 
-        RemoteViews remoteViews = new RemoteViews(getPackageName(), R.layout.notificaion);
+        remoteViews = new RemoteViews(getPackageName(), R.layout.notificaion);
+
+        remoteViews.setTextViewText(R.id.notificationStateText,stateTextView.getText());
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(TimerActivity.this, CHANNEL_ID)
                 .setCustomContentView(remoteViews)
                 .setSmallIcon(R.drawable.launcher_icon)
-                .setStyle(new NotificationCompat.DecoratedCustomViewStyle())
+                //.setStyle(new NotificationCompat.DecoratedCustomViewStyle())
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(TimerActivity.this);
