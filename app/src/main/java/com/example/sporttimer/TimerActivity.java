@@ -98,9 +98,6 @@ public class TimerActivity extends AppCompatActivity {
             }
         });
 
-
-
-
         exitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -133,11 +130,13 @@ public class TimerActivity extends AppCompatActivity {
         remoteViews = new RemoteViews(getPackageName(), R.layout.notificaion);
 
         remoteViews.setTextViewText(R.id.notificationStateText,stateTextView.getText());
+        remoteViews.setTextViewText(R.id.notificationSets,String.valueOf(sets));
+        remoteViews.setTextViewText(R.id.notificationTimeRemaining,timerTimeRemainingTextView.getText());
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(TimerActivity.this, CHANNEL_ID)
                 .setCustomContentView(remoteViews)
                 .setSmallIcon(R.drawable.launcher_icon)
-                //.setStyle(new NotificationCompat.DecoratedCustomViewStyle())
+                .setStyle(new NotificationCompat.DecoratedCustomViewStyle())
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(TimerActivity.this);
@@ -163,9 +162,7 @@ public class TimerActivity extends AppCompatActivity {
     }
 
     private void pauseTimer() {
-
         countDownTimer.cancel();
-
     }
 
 
@@ -184,7 +181,7 @@ public class TimerActivity extends AppCompatActivity {
         if (this.timerState == 0 && sets > 1) {
             timerState++;
             stateTextView.setText("تمرین");
-            //notificationState.setText(" تمرین ");
+            //remoteViews.setTextViewText(R.id.notificationStateText,"تمرین");
             timeLeftInMilliSeconds = (long) ((workMinutes * 60) + (workSeconds + 1)) * 1000;
             startTimer();
         }
@@ -193,7 +190,7 @@ public class TimerActivity extends AppCompatActivity {
         else if (this.timerState == 1 && sets > 1) {
             timerState++;
             stateTextView.setText("استراحت");
-           // notificationState.setText(" استراحت ");
+            //remoteViews.setTextViewText(R.id.notificationStateText,"تمرین");
             timeLeftInMilliSeconds = (long) ((restMinutes * 60) + (restSeconds + 1)) * 1000;
             startTimer();
         } else if (this.timerState == 2) {
@@ -201,12 +198,12 @@ public class TimerActivity extends AppCompatActivity {
             sets--;
             setsTextView.setText(String.valueOf(sets));
             stateTextView.setText("تمرین");
-            //notificationState.setText(" تمرین ");
+            //remoteViews.setTextViewText(R.id.notificationStateText,"تمرین");
             timeLeftInMilliSeconds = (long) ((workMinutes * 60) + (workSeconds + 1)) * 1000;
             startTimer();
         } else if (timerState == 1 && sets == 1) {
             timerState = 3;
-            //notificationState.setText(" پایان ");
+            //remoteViews.setTextViewText(R.id.notificationStateText,"پایان");
             stateTextView.setText("پایان");
             finish();
         }
