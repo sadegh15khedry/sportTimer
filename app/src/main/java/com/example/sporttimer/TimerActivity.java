@@ -136,6 +136,7 @@ public class TimerActivity extends AppCompatActivity {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(TimerActivity.this, CHANNEL_ID)
                 .setCustomContentView(remoteViews)
                 .setSmallIcon(R.drawable.launcher_icon)
+                .setStyle(new NotificationCompat.DecoratedCustomViewStyle())
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(TimerActivity.this);

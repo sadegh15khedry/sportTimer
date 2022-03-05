@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="64dp"
-    android:paddingHorizontal="10dp"
-    android:paddingVertical="5dp">
+    >
 
 
     <TextView
@@ -40,9 +39,10 @@
         android:id="@+id/notificationPauseButton"
         android:src="@drawable/ic_baseline_pause_24"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="50dp"
         android:contentDescription="@string/notification_button_default"
         android:layout_alignParentEnd="true"
+
         android:layout_alignParentBottom="true" />
 
 </RelativeLayout>
