@@ -6,6 +6,9 @@ import androidx.core.app.NotificationManagerCompat;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.media.AudioManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -33,13 +36,10 @@ public class TimerActivity extends AppCompatActivity {
     private TextView timerTimeRemainingTextView;
     private TextView stateTextView;
     private TextView setsTextView;
-    //private TextView notificationState;
     private Button pauseResumeButton;
     private static final String CHANNEL_ID = "timer activity";
 
     private RemoteViews remoteViews;
-    //private NotificationManagerCompat notificationManagerCompat;
-    //private NotificationCompat.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +77,8 @@ public class TimerActivity extends AppCompatActivity {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(CHANNEL_ID, "test", NotificationManager.IMPORTANCE_HIGH);
+            channel.setSound(null,null);
+            channel.enableVibration(false);
             NotificationManager manager = getSystemService(NotificationManager.class);
             manager.createNotificationChannel(channel);
         }
@@ -133,11 +135,20 @@ public class TimerActivity extends AppCompatActivity {
         remoteViews.setTextViewText(R.id.notificationSets,String.valueOf(sets));
         remoteViews.setTextViewText(R.id.notificationTimeRemaining,timerTimeRemainingTextView.getText());
 
+        Intent clickIntent = new Intent(this,NotificationReceiver.class);
+        //clickIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        PendingIntent clickPendingIntent = PendingIntent.getBroadcast(this,0,clickIntent,0);
+        remoteViews.setOnClickPendingIntent(R.id.notificationWrapper,clickPendingIntent);
+
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(TimerActivity.this, CHANNEL_ID)
                 .setCustomContentView(remoteViews)
                 .setSmallIcon(R.drawable.launcher_icon)
                 .setStyle(new NotificationCompat.DecoratedCustomViewStyle())
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                //.setDefaults(0)
+                .setSound(null)
+                ;
 
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(TimerActivity.this);
         notificationManagerCompat.notify(1, builder.build());
