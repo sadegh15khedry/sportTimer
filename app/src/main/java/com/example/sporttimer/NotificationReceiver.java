@@ -19,6 +19,5 @@ public class NotificationReceiver extends BroadcastReceiver {
         NotificationManagerCompat manager  = NotificationManagerCompat.from(context);
         manager.cancel(1);
 
-
     }
 }

@@ -8,7 +8,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
-import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -37,6 +37,10 @@ public class TimerActivity extends AppCompatActivity {
     private TextView stateTextView;
     private TextView setsTextView;
     private Button pauseResumeButton;
+
+    private MediaPlayer longBeepMediaPlayer;
+    private MediaPlayer shortBeepMediaPlayer;
+
     private static final String CHANNEL_ID = "timer activity";
 
     private RemoteViews remoteViews;
@@ -65,6 +69,9 @@ public class TimerActivity extends AppCompatActivity {
         timerTimeRemainingTextView.setText((String.valueOf(timeLeftInMilliSeconds / 1000)));
         stateTextView.setText("آماده باش");
 
+        longBeepMediaPlayer = MediaPlayer.create(this, R.raw.long_beep);
+        shortBeepMediaPlayer = MediaPlayer.create(this, R.raw.short_beep);
+
         startTimer();
 
 
@@ -74,6 +81,9 @@ public class TimerActivity extends AppCompatActivity {
     public void onResume() {
         pauseResumeButton = findViewById(R.id.pauseResumeButton);
         Button exitButton = findViewById(R.id.exitButton);
+
+        longBeepMediaPlayer = MediaPlayer.create(this, R.raw.long_beep);
+
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(CHANNEL_ID, "test", NotificationManager.IMPORTANCE_HIGH);
@@ -137,6 +147,8 @@ public class TimerActivity extends AppCompatActivity {
 
         Intent clickIntent = new Intent(this,NotificationReceiver.class);
         //clickIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        clickIntent.setAction(Intent.ACTION_MAIN);
+        clickIntent.addCategory(Intent.CATEGORY_LAUNCHER);
         PendingIntent clickPendingIntent = PendingIntent.getBroadcast(this,0,clickIntent,0);
         remoteViews.setOnClickPendingIntent(R.id.notificationWrapper,clickPendingIntent);
 
@@ -146,11 +158,13 @@ public class TimerActivity extends AppCompatActivity {
                 .setSmallIcon(R.drawable.launcher_icon)
                 .setStyle(new NotificationCompat.DecoratedCustomViewStyle())
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setContentIntent(clickPendingIntent)
                 //.setDefaults(0)
                 .setSound(null)
                 ;
 
         NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(TimerActivity.this);
+
         notificationManagerCompat.notify(1, builder.build());
             super.onStop();
     }
@@ -161,12 +175,23 @@ public class TimerActivity extends AppCompatActivity {
             @Override
             public void onTick(long newtTimeLeftInMilliSeconds) {
                 timeLeftInMilliSeconds = newtTimeLeftInMilliSeconds;
+
+
+                if (4000 > timeLeftInMilliSeconds && timeLeftInMilliSeconds > 1000)
+                    shortBeepMediaPlayer.start();
+                else if (timeLeftInMilliSeconds < 1000 && timeLeftInMilliSeconds>0)
+                    longBeepMediaPlayer.start();
+
                 updateDisplayedTime();
+
             }
 
             @Override
             public void onFinish() {
                 TimerStateUpdate();
+                shortBeepMediaPlayer.start();
+                //mediaPlayer = MediaPlayer.create(this, R.raw.long_beep);
+
             }
 
         }.start();
