@@ -37,7 +37,7 @@ public class TimerActivity extends AppCompatActivity {
     private TextView stateTextView;
     private TextView setsTextView;
     private Button pauseResumeButton;
-
+    private Button exitButton;
     private MediaPlayer longBeepMediaPlayer;
     private MediaPlayer shortBeepMediaPlayer;
 
@@ -50,37 +50,43 @@ public class TimerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timer);
 
+        //getting data from Main Activity
         sets = Integer.parseInt(getIntent().getStringExtra("sets"));
         workMinutes = Integer.parseInt(getIntent().getStringExtra("workMinutes"));
         workSeconds = Integer.parseInt(getIntent().getStringExtra("workSeconds"));
         restMinutes = Integer.parseInt(getIntent().getStringExtra("restMinutes"));
         restSeconds = Integer.parseInt(getIntent().getStringExtra("restSeconds"));
 
+        //timer initialisation
         timerState = 0;
         isTimerRunning = true;
         timeLeftInMilliSeconds = 6000;
 
+        //view initialisation
         stateTextView = findViewById(R.id.stateTextView);
         setsTextView = findViewById(R.id.timerSetsTextView);
-
         timerTimeRemainingTextView = findViewById(R.id.timerTimeRemainingTextView);
-
         setsTextView.setText(String.valueOf(sets));
         timerTimeRemainingTextView.setText((String.valueOf(timeLeftInMilliSeconds / 1000)));
         stateTextView.setText("آماده باش");
+        pauseResumeButton = findViewById(R.id.pauseResumeButton);
+        exitButton = findViewById(R.id.exitButton);
 
+        //media player initialisation
         longBeepMediaPlayer = MediaPlayer.create(this, R.raw.long_beep);
         shortBeepMediaPlayer = MediaPlayer.create(this, R.raw.short_beep);
+        //longBeepMediaPlayer.setVolume(20,20);
+
 
         startTimer();
-
 
     }
 
     @Override
     public void onResume() {
-        pauseResumeButton = findViewById(R.id.pauseResumeButton);
-        Button exitButton = findViewById(R.id.exitButton);
+
+
+
 
         longBeepMediaPlayer = MediaPlayer.create(this, R.raw.long_beep);
 
