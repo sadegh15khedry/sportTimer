@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
+import android.annotation.SuppressLint;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -82,6 +83,8 @@ public class TimerActivity extends AppCompatActivity {
 
     }
 
+
+
     @Override
     public void onResume() {
 
@@ -152,27 +155,40 @@ public class TimerActivity extends AppCompatActivity {
         remoteViews.setTextViewText(R.id.notificationTimeRemaining,timerTimeRemainingTextView.getText());
 
         Intent clickIntent = new Intent(this,NotificationReceiver.class);
-        //clickIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        clickIntent.setAction(Intent.ACTION_MAIN);
-        clickIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-        PendingIntent clickPendingIntent = PendingIntent.getBroadcast(this,0,clickIntent,0);
+
+
+//        Intent newTimeintent = new Intent(getApplicationContext(), TimerActivity.class);
+//        newTimeintent.putExtra("sets", sets);
+//        newTimeintent.putExtra("workSeconds", workSeconds);
+//        newTimeintent.putExtra("workMinutes", workMinutes);
+//        newTimeintent.putExtra("restSeconds", restSeconds);
+//        newTimeintent.putExtra("restMinutes", restMinutes);
+
+        PendingIntent clickPendingIntent = PendingIntent
+                //.getBroadcast(this,0,clickIntent,PendingIntent.FLAG_MUTABLE)
+                .getActivity(this,0,this.getIntent(),PendingIntent.FLAG_UPDATE_CURRENT);
+
+
         remoteViews.setOnClickPendingIntent(R.id.notificationWrapper,clickPendingIntent);
 
 
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(TimerActivity.this, CHANNEL_ID)
+        @SuppressLint("NotificationTrampoline") NotificationCompat.Builder builder = new NotificationCompat.Builder(TimerActivity.this, CHANNEL_ID)
                 .setCustomContentView(remoteViews)
                 .setSmallIcon(R.drawable.launcher_icon)
                 .setStyle(new NotificationCompat.DecoratedCustomViewStyle())
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setContentIntent(clickPendingIntent)
-                //.setDefaults(0)
-                .setSound(null)
+                .setSilent(true);
                 ;
 
-        NotificationManagerCompat notificationManagerCompat = NotificationManagerCompat.from(TimerActivity.this);
+
+        NotificationManagerCompat notificationManagerCompat =
+                NotificationManagerCompat.from(TimerActivity.this);
 
         notificationManagerCompat.notify(1, builder.build());
+
             super.onStop();
+
     }
 
 
